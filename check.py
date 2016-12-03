@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import time
+import time,os
 from urllib2 import urlopen
 
 # Reference :
@@ -25,6 +25,10 @@ def updateStoredIP(filename):
 		IPFile.write(currentIP)
 		IPFile.close()
 		print 'IP address has been udpated : '+currentIP
+
+		# Commit to Github
+		os.system('git commit -m "Update IP address"')
+		os.system('git push -u origin master')
 
 while 1:
 	updateStoredIP('IP.md')
