@@ -3,6 +3,10 @@
 import time,os,re,sys,json
 from urllib2 import urlopen
 
+# Reference :
+# http://stackoverflow.com/questions/9481419/how-can-i-get-the-public-ip-using-python2-7
+# http://stackoverflow.com/questions/287871/print-in-terminal-with-colors-using-python
+
 class TerminalTextStyle:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
