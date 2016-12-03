@@ -10,8 +10,8 @@ MyPublicIP は、コンピューターのネットワークの IP アドレス�
 
 How to use / 使用方法 / 使用方法
 --------
-Run [python check.py](https://github.com/WongKang/MyPublicIP/blob/master/check.py).
+Run [python start_service.py](https://github.com/WongKang/MyPublicIP/blob/master/start_service.py).
 
-执行 [python check.py](https://github.com/WongKang/MyPublicIP/blob/master/check.py).
+执行 [python start_service.py](https://github.com/WongKang/MyPublicIP/blob/master/start_service.py).
 
-実行 [python check.py](https://github.com/WongKang/MyPublicIP/blob/master/check.py).
+実行 [python start_service.py](https://github.com/WongKang/MyPublicIP/blob/master/start_service.py).
