@@ -1,9 +1,9 @@
 #!/usr/bin/python
 
-import time,os,re,json
+import time,os,re,sys,json
 from urllib2 import urlopen
 
-class bcolors:
+class TerminalTextStyle:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
     OKGREEN = '\033[92m'
@@ -25,6 +25,7 @@ def updateStoredIP(filename):
 			ipinfo = urlopen('http://ip138.com/ip2city.asp').read()
 			currentIP = re.search('\d+\.\d+\.\d+\.\d+',ipinfo).group(0)
 		except:
+			print TerminalTextStyle.WARNING + "Can't connect to internet" + TerminalTextStyle.ENDC
 			return
 
 	# Get stored public IP address
@@ -40,14 +41,17 @@ def updateStoredIP(filename):
 		IPFile = open(filename, 'w')
 		IPFile.write(currentIP)
 		IPFile.close()
-		print bcolors.OKGREEN + 'IP address has been udpated : '+currentIP + bcolors.ENDC
+
+		print TerminalTextStyle.WARNING + 'IP address has been udpated : '+currentIP + TerminalTextStyle.ENDC
 
 		# Commit to Github
 		os.system('git add '+filename)
 		os.system('git commit -m "Update IP address"')
 		os.system('git push -u origin master')
 	else:
-		print bcolors.OKGREEN + "." + bcolors.ENDC
+		# If internet is OK and IP is not changed, terminal will display : ......
+		print TerminalTextStyle.OKGREEN + "." + TerminalTextStyle.ENDC,
+		sys.stdout.flush()
 
 while 1:
 	updateStoredIP('IP.md')
